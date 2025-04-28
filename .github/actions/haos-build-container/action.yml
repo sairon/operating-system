@@ -1,0 +1,18 @@
+name: "Run command in HAOS build container"
+inputs:
+  command:
+    description: "Command to run in the container"
+    required: true
+  image:
+    description: "Docker image to use"
+    required: true
+runs:
+  using: 'docker'
+  image: ${{ inputs.image }}
+  args:
+    - -e BUILDER_UID="$(id -u)" \
+    - -e BUILDER_GID="$(id -g)" \
+    - -v "${GITHUB_WORKSPACE}:/build" \
+    - -v "/mnt/cache:/cache" \
+    - -v "/mnt/output:/build/output"
+    - ${{ inputs.command }}
