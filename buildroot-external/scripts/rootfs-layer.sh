@@ -39,6 +39,8 @@ function fix_rootfs() {
         find "${TARGET_DIR}/share/locale" -name "grub.mo" -delete
         find "${TARGET_DIR}/share/locale" -type d -empty -delete
     fi
+
+    ln -fs /mnt/overlay/etc/localtime "${TARGET_DIR}/etc/localtime"
 }
 
 
