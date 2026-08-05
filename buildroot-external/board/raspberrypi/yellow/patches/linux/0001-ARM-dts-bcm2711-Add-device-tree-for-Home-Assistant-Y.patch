@@ -20,7 +20,7 @@ new file mode 100644
 index 000000000000..ac0c32fa3c8e
 --- /dev/null
 +++ b/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-ha-yellow.dts
-@@ -0,0 +1,714 @@
+@@ -0,0 +1,715 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/dts-v1/;
 +#define BCM2711
@@ -387,6 +387,7 @@ index 000000000000..ac0c32fa3c8e
 +&uart1 {
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&uart1_bt_pins>;
++	uart-has-rtscts;
 +	status = "okay";
 +};
 +
